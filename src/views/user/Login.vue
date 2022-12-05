@@ -56,7 +56,7 @@ async function login () {
 </script>
 <template>
   <div class="wrap">
-    <h3 class="title">密流转发中心</h3>
+    <h3 class="title">图形管理中心</h3>
     <el-form
       ref="ruleFormRef"
       :model="ruleForm"
