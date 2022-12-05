@@ -66,10 +66,16 @@ async function login () {
         <el-input
           v-model="ruleForm.user"
           autocomplete="off"
+          maxlength="12"
         />
       </el-form-item>
       <el-form-item label="密码" prop="pass">
-        <el-input v-model="ruleForm.pass" type="password" autocomplete="off" />
+        <el-input
+          v-model="ruleForm.pass"
+          type="password"
+          autocomplete="off"
+          maxlength="12"
+        />
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm(ruleFormRef)"
@@ -79,7 +85,11 @@ async function login () {
     </el-form>
   </div>
 </template>
-
+<style>
+html, body {
+  background: #f3f4f5 !important;
+}
+</style>
 <style scoped lang="less">
 .wrap {
   padding: 0;
