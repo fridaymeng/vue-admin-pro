@@ -6,6 +6,7 @@ const ruleForm = reactive({
   pass: '',
   user: ''
 })
+const submitLoading = ref(false);
 const validatePass = (rule, value, callback) => {
   if (value === '') {
     callback(new Error('Please input the password'))
@@ -33,6 +34,7 @@ const rules = reactive({
   userName: [{ validator: validateUser, trigger: 'blur' }]
 })
 const submitForm = (formEl) => {
+  submitLoading.value = true
   if (!formEl) return
   formEl.validate((valid) => {
     if (valid) {
@@ -47,6 +49,7 @@ const submitForm = (formEl) => {
 async function login () {
   const { code, data } = await Login()
   if (code === 0) {
+    submitLoading.value = false
     console.log(data)
   }
 }
@@ -60,13 +63,15 @@ async function login () {
       status-icon
       :rules="rules"
       label-width="120px"
-      class="demo-ruleForm"
+      class="ruleForm-wrap"
     >
       <el-form-item label="用户名" prop="checkPass">
         <el-input
           v-model="ruleForm.user"
           autocomplete="off"
           maxlength="12"
+          :disabled="submitLoading"
+          size="large"
         />
       </el-form-item>
       <el-form-item label="密码" prop="pass">
@@ -75,12 +80,17 @@ async function login () {
           type="password"
           autocomplete="off"
           maxlength="12"
+          :disabled="submitLoading"
+          size="large"
         />
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm(ruleFormRef)"
-          >登录</el-button
-        >
+        <el-button
+          type="primary"
+          @click="submitForm(ruleFormRef)"
+          :loading="submitLoading"
+          size="large"
+        >登录</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -92,7 +102,9 @@ html, body {
 </style>
 <style scoped lang="less">
 .wrap {
-  padding: 0;
+  padding: 200px 0 0 0;
+  max-width: 600px;
+  margin: 0 auto;
   .title {
     padding: 0 0 0 120px;
   }
