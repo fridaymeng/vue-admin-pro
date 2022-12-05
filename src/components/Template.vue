@@ -5,8 +5,7 @@
     cts
   </div>
 </template>
-
-<style scoped>
+<style lang="scss" scoped>
 .wrap {
   padding: 0;
 }

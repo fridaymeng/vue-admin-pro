@@ -53,6 +53,7 @@ async function login () {
 </script>
 <template>
   <div class="wrap">
+    <h3 class="title">密流转发中心</h3>
     <el-form
       ref="ruleFormRef"
       :model="ruleForm"
@@ -79,8 +80,11 @@ async function login () {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="less">
 .wrap {
   padding: 0;
+  .title {
+    padding: 0 0 0 120px;
+  }
 }
 </style>
