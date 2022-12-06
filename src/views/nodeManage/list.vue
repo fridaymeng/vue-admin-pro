@@ -63,6 +63,7 @@ const onReset = () => {
 onMounted(() => {
   // NProgress.done()
 })
+const total = ref(1000)
 </script>
 <template>
   <div>
@@ -100,11 +101,19 @@ onMounted(() => {
           </template>
         </el-table-column>
       </el-table>
+      <div class="pagination-wrap">
+        <el-pagination background layout="prev, pager, next, sizes" :total="total" />
+      </div>
     </div>
   </div>
 </template>
 <style scoped lang="less">
 .wrap {
   padding: 0;
+  .pagination-wrap {
+    padding: 15px 0 0 0;
+    display: flex;
+    justify-content: flex-end;
+  }
 }
 </style>
