@@ -20,6 +20,8 @@ export default defineConfig({
     }
   },
   resolve: {
+    // import时，可省略的后缀符号
+    extensions: ['.js', '.vue', '.json'],
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },

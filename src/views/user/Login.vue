@@ -1,6 +1,8 @@
 <script setup>
 import { ref, reactive } from 'vue';
 import { Login } from '@/api/user';
+import router from "@/router";
+import { getUUID } from '@/utils/uuid';
 const ruleFormRef = ref({});
 const ruleForm = reactive({
   pass: '',
@@ -38,7 +40,9 @@ const submitForm = (formEl) => {
   if (!formEl) return
   formEl.validate((valid) => {
     if (valid) {
+      localStorage.setItem('authenticated', getUUID());
       console.log('submit!')
+      router.push('/')
       login(valid)
     } else {
       console.log('error submit!')
@@ -97,7 +101,7 @@ async function login () {
 </template>
 <style>
 html, body {
-  background: #f3f4f5 !important;
+  background: #f3f4f5;
 }
 </style>
 <style scoped lang="less">
