@@ -1,6 +1,8 @@
 <script setup>
 import { ref, reactive } from 'vue';
 import { Login } from '@/api/user';
+import { getUUID } from '@/utils/uuid';
+import router from "@/router";
 const ruleFormRef = ref({});
 const ruleForm = reactive({
   pass: '',
@@ -24,7 +26,7 @@ const validateUser = (rule, value, callback) => {
   } else {
     if (ruleForm.user !== '') {
       if (!ruleFormRef.value) return
-      ruleFormRef.value.validateField('user', () => null)
+      ruleFormRef.value.validateField('checkUser', () => null)
     }
     callback()
   }
@@ -38,8 +40,10 @@ const submitForm = (formEl) => {
   if (!formEl) return
   formEl.validate((valid) => {
     if (valid) {
-      console.log('submit!')
-      login(valid)
+      console.log('submit!');
+      localStorage.setItem('authenticated', getUUID())
+      router.push('/')
+      // login(valid)
     } else {
       console.log('error submit!')
       return false
@@ -65,7 +69,7 @@ async function login () {
       label-width="120px"
       class="ruleForm-wrap"
     >
-      <el-form-item label="用户名" prop="checkPass">
+      <el-form-item label="用户名" prop="checkUser">
         <el-input
           v-model="ruleForm.user"
           autocomplete="off"
@@ -74,7 +78,7 @@ async function login () {
           size="large"
         />
       </el-form-item>
-      <el-form-item label="密码" prop="pass">
+      <el-form-item label="密码" prop="checkPass">
         <el-input
           v-model="ruleForm.pass"
           type="password"
