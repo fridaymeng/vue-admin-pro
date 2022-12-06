@@ -11,9 +11,9 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => MainLayout,
+      component: MainLayout,
       redirect: '/dashboard',
-      meta: { title: '首页', permission: ['dashboard'] },
+      meta: { title: '首页', permission: ['index'] },
       children: [
         {
           path: "/dashboard",
@@ -21,8 +21,78 @@ const router = createRouter({
           // route level code-splitting
           // this generates a separate chunk (About.[hash].js) for this route
           // which is lazy-loaded when the route is visited.
-          component: () => import("../views/dashboard/Dashboard.vue"),
+          component: () => import("@/views/dashboard/Dashboard"),
           meta: { title: '数据看板', permission: ['dashboard'] }
+        },
+        {
+          path: "node",
+          name: "nodeManage",
+          redirect: "/node/internal",
+          children: [
+            {
+              path: "internal",
+              name: "internalNodeManage",
+              component: () => import("@/views/nodeManage/InternalNodes"),
+              meta: { title: '内部节点管理', permission: ['nodeManage'] }
+            },
+            {
+              path: "external",
+              name: "externalNodeManage",
+              component: () => import("@/views/nodeManage/ExternalNodes"),
+              meta: { title: '外部节点管理', permission: ['nodeManage'] }
+            }
+          ]
+        },
+        {
+          path: "rule",
+          name: "ruleManage",
+          redirect: "/rule/list",
+          children: [
+            {
+              path: "list",
+              name: "ruleManageList",
+              component: () => import("@/views/ruleManage/list"),
+              meta: { title: '规则管理', permission: ['ruleManage'] }
+            }
+          ]
+        },
+        {
+          path: "data",
+          name: "dataManage",
+          redirect: "/data/internal",
+          children: [
+            {
+              path: "internal",
+              name: "internalDataManage",
+              component: () => import("@/views/dataManage/list"),
+              meta: { title: '内部数据管理', permission: ['dataManage'] }
+            },
+            {
+              path: "external",
+              name: "externalDataManage",
+              component: () => import("@/views/dataManage/list"),
+              meta: { title: '外部数据管理', permission: ['dataManage'] }
+            }
+          ]
+        },
+        {
+          path: "project",
+          name: "projectManage",
+          redirect: "/project/guest",
+          children: [
+            {
+              path: "guest",
+              name: "guestManage",
+              component: () => import("@/views/projectManage/list"),
+              meta: { title: '我方项目管理', permission: ['projectManage'] }
+            },
+            {
+              path: "host",
+              name: "hostManage",
+              component: () => import("@/views/projectManage/list"),
+              meta: { title: '对方项目管理', permission: ['projectManage'] }
+            }
+          ]
         }
       ]
     },

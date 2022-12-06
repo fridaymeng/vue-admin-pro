@@ -30,7 +30,8 @@ import HeadMenu from "@/components/HeadMenu";
 .wrap {
   padding: 0;
   .header-wrap {
-    background: #f3f4f5;
+    background: #08c;
+    color: #fff;
     h3 {
       line-height: 100%;
     }
