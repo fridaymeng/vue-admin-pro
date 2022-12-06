@@ -4,7 +4,7 @@ import list from '@/views/nodeManage/list';
 <template>
   <div>
     <div class="wrap">
-      <list />
+      <list :title="'外部节点管理'" />
     </div>
   </div>
 </template>

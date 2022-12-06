@@ -1,6 +1,9 @@
 <script setup>
 import { ElMessageBox } from 'element-plus';
 import { reactive, ref } from 'vue';
+const props = defineProps({
+  title: String
+});
 const tableData = [
   {
     id: 100,
