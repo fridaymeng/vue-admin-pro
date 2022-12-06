@@ -1,6 +1,6 @@
 <script setup>
 import { ElMessageBox } from 'element-plus';
-import { reactive, ref } from 'vue';
+import { reactive, ref, onMounted } from 'vue';
 const props = defineProps({
   title: String
 });
@@ -60,6 +60,9 @@ const formRef = ref(null)
 const onReset = () => {
   formRef.value.resetFields()
 }
+onMounted(() => {
+  // NProgress.done()
+})
 </script>
 <template>
   <div>

@@ -31,7 +31,7 @@ function handleLogOut() {
   padding: 20px 5px 0 0;
   text-align: right;
   .el-dropdown-link {
-    color: #fff;
+    color: #111;
   }
 }
 </style>
