@@ -43,10 +43,10 @@ import HeadMenu from "@/components/HeadMenu";
   }
   .v-enter-active,
   .v-leave-active {
-    transition: all 0.2s ease;
+    transition: all 0.1s ease;
   }
   .v-enter-active {
-    transition-delay: 0.2s;
+    transition-delay: 0.1s;
   }
   .v-enter-from,
   .v-leave-to {
