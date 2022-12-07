@@ -26,10 +26,21 @@ onMounted(() => {
             class="el-menu-vertical-demo"
             :router="true"
           >
-            <el-menu-item index="0" :route="{ path: '/' }">
+            <!--<el-menu-item index="0" :route="{ path: '/' }">
               <el-icon><icon-menu /></el-icon>
               <span>数据看板</span>
-            </el-menu-item>
+            </el-menu-item>-->
+            <el-sub-menu index="0">
+              <template #title>
+                <el-icon><Connection /></el-icon>
+                <span>数据看板</span>
+              </template>
+              <el-menu-item
+                index="analysis"
+                :route="{ name: 'analysis' }"
+                >分析页</el-menu-item
+              >
+            </el-sub-menu>
             <el-sub-menu index="1">
               <template #title>
                 <el-icon><Connection /></el-icon>

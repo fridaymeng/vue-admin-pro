@@ -16,11 +16,19 @@ const router = createRouter({
         {
           path: "/dashboard",
           name: "Dashboard",
-          // route level code-splitting
-          // this generates a separate chunk (About.[hash].js) for this route
-          // which is lazy-loaded when the route is visited.
-          component: () => import("@/views/dashboard/Dashboard"),
           meta: { title: "数据看板", permission: ["dashboard"] },
+          redirect: "/dashboard/analysis",
+          children: [
+            {
+              path: "analysis",
+              name: "analysis",
+              // route level code-splitting
+              // this generates a separate chunk (About.[hash].js) for this route
+              // which is lazy-loaded when the route is visited.
+              component: () => import("@/views/dashboard/Analysis"),
+              meta: { title: "分析页", permission: ["analysis"] },
+            }
+          ]
         },
         {
           path: "list",
@@ -33,7 +41,7 @@ const router = createRouter({
               component: () => import("@/views/list/Base"),
               meta: { title: "标准列表", permission: ["baseList"] },
             }
-          ],
+          ]
         },
         {
           path: "form",
@@ -46,7 +54,7 @@ const router = createRouter({
               component: () => import("@/views/form/Base"),
               meta: { title: "标准表单", permission: ["baseForm"] },
             }
-          ],
+          ]
         }
       ],
     },
