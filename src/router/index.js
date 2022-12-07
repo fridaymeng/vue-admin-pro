@@ -34,6 +34,19 @@ const router = createRouter({
               meta: { title: "标准列表", permission: ["baseList"] },
             }
           ],
+        },
+        {
+          path: "form",
+          name: "form",
+          redirect: "/form/base",
+          children: [
+            {
+              path: "base",
+              name: "baseForm",
+              component: () => import("@/views/form/Base"),
+              meta: { title: "标准表单", permission: ["baseForm"] },
+            }
+          ],
         }
       ],
     },

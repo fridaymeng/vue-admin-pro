@@ -4,6 +4,7 @@ import {
   Menu as IconMenu,
   Connection,
   Setting,
+  Edit,
   Folder,
 } from "@element-plus/icons-vue";
 import { ref, onMounted } from "vue";
@@ -35,9 +36,20 @@ onMounted(() => {
                 <span>列表页</span>
               </template>
               <el-menu-item
-                index="list"
+                index="baseList"
                 :route="{ name: 'baseList' }"
                 >标准列表</el-menu-item
+              >
+            </el-sub-menu>
+            <el-sub-menu index="2">
+              <template #title>
+                <el-icon><Edit /></el-icon>
+                <span>表单页</span>
+              </template>
+              <el-menu-item
+                index="baseForm"
+                :route="{ name: 'baseForm' }"
+                >标准表单</el-menu-item
               >
             </el-sub-menu>
           </el-menu>
