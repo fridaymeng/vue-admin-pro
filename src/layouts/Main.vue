@@ -20,7 +20,12 @@ import HeadMenu from "@/components/HeadMenu";
           <AsiceMenu />
         </el-aside>
         <el-main>
-          <router-view></router-view>
+          <!--<router-view></router-view>-->
+          <router-view v-slot="{ Component, route }">
+            <Transition>
+              <component :is="Component" :key="route.path" />
+            </Transition>
+          </router-view>
         </el-main>
       </el-container>
     </el-container>
@@ -30,10 +35,22 @@ import HeadMenu from "@/components/HeadMenu";
 .wrap {
   padding: 0;
   .header-wrap {
-    background: #f3f4f5;
+    background: #08c;
     h3 {
       line-height: 100%;
+      color: #fff;
     }
+  }
+  .v-enter-active,
+  .v-leave-active {
+    transition: all 0.2s ease;
+  }
+  .v-enter-active {
+    transition-delay: 0.2s;
+  }
+  .v-enter-from,
+  .v-leave-to {
+    transform: scale(0, 0);
   }
 }
 </style>

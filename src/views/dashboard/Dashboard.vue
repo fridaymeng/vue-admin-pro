@@ -1,9 +1,6 @@
-<script setup>
-</script>
+<script setup></script>
 <template>
-  <div class="wrap">
-    dashboard
-  </div>
+  <div class="wrap">dashboard</div>
 </template>
 
 <style scoped>

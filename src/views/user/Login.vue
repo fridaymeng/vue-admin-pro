@@ -1,66 +1,66 @@
 <script setup>
-import { ref, reactive } from 'vue';
-import { Login } from '@/api/user';
+import { ref, reactive } from "vue";
+import { Login } from "@/api/user";
 import router from "@/router";
-import { getUUID } from '@/utils/uuid';
+import { getUUID } from "@/utils/uuid";
 const ruleFormRef = ref({});
 const ruleForm = reactive({
-  pass: '',
-  user: ''
-})
+  pass: "123456",
+  user: "admin",
+});
 const submitLoading = ref(false);
 const validatePass = (rule, value, callback) => {
-  if (value === '') {
-    callback(new Error('Please input the password'))
+  if (value === "") {
+    callback(new Error("Please input the password"));
   } else {
-    if (ruleForm.checkPass !== '') {
-      if (!ruleFormRef.value) return
-      ruleFormRef.value.validateField('checkPass', () => null)
+    if (ruleForm.checkPass !== "") {
+      if (!ruleFormRef.value) return;
+      ruleFormRef.value.validateField("checkPass", () => null);
     }
-    callback()
+    callback();
   }
-}
+};
 const validateUser = (rule, value, callback) => {
-  if (value === '') {
-    callback(new Error('Please input the userName'))
+  if (value === "") {
+    callback(new Error("Please input the userName"));
   } else {
-    if (ruleForm.user !== '') {
-      if (!ruleFormRef.value) return
-      ruleFormRef.value.validateField('user', () => null)
+    if (ruleForm.user !== "") {
+      if (!ruleFormRef.value) return;
+      ruleFormRef.value.validateField("user", () => null);
     }
-    callback()
+    callback();
   }
-}
+};
 const rules = reactive({
-  pass: [{ validator: validatePass, trigger: 'blur' }],
-  userName: [{ validator: validateUser, trigger: 'blur' }]
-})
+  pass: [{ validator: validatePass, trigger: "blur" }],
+  userName: [{ validator: validateUser, trigger: "blur" }],
+});
 const submitForm = (formEl) => {
-  submitLoading.value = true
-  if (!formEl) return
+  submitLoading.value = true;
+  if (!formEl) return;
   formEl.validate((valid) => {
     if (valid) {
-      localStorage.setItem('authenticated', getUUID());
-      console.log('submit!')
-      router.push('/')
-      login(valid)
+      localStorage.setItem("authenticated", getUUID());
+      console.log("submit!");
+      router.push("/");
+      login(valid);
     } else {
-      console.log('error submit!')
-      return false
+      console.log("error submit!");
+      return false;
     }
-  })
-}
-async function login () {
-  const { code, data } = await Login()
+  });
+};
+async function login() {
+  const { code, data } = await Login();
   if (code === 0) {
-    submitLoading.value = false
-    console.log(data)
+    submitLoading.value = false;
+    console.log(data);
   }
 }
 </script>
 <template>
   <div class="wrap">
-    <h3 class="title">密流转发中心</h3>
+    <h3 class="title">VUE ADMIN PRO</h3>
     <el-form
       ref="ruleFormRef"
       :model="ruleForm"
@@ -94,13 +94,15 @@ async function login () {
           @click="submitForm(ruleFormRef)"
           :loading="submitLoading"
           size="large"
-        >登录</el-button>
+          >登录</el-button
+        >
       </el-form-item>
     </el-form>
   </div>
 </template>
 <style>
-html, body {
+html,
+body {
   background: #f3f4f5;
 }
 </style>

@@ -1,10 +1,7 @@
-<script setup>
-</script>
+<script setup></script>
 <template>
   <div>
-    <div class="wrap">
-      cts
-    </div>
+    <div class="wrap">cts</div>
   </div>
 </template>
 <style scoped lang="less">

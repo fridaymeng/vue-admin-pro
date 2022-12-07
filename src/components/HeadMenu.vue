@@ -1,9 +1,9 @@
 <script setup>
-import { ArrowDown } from '@element-plus/icons-vue';
+import { ArrowDown } from "@element-plus/icons-vue";
 import router from "@/router";
 function handleLogOut() {
-  localStorage.removeItem('authenticated');
-  router.push('/login');
+  localStorage.removeItem("authenticated");
+  router.push("/login");
 }
 </script>
 <template>
@@ -31,7 +31,7 @@ function handleLogOut() {
   padding: 20px 5px 0 0;
   text-align: right;
   .el-dropdown-link {
-    color: #111;
+    color: #fff;
   }
 }
 </style>
