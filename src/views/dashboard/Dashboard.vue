@@ -1,8 +1,8 @@
 <script setup>
-import { onMounted } from "vue";
+import { onMounted } from 'vue';
 onMounted(() => {
-  console.log(345)
-})
+  console.log(345);
+});
 </script>
 <template>
   <div class="wrap">
@@ -15,7 +15,7 @@ onMounted(() => {
   padding: 0;
   #chartdiv {
     width: 100%;
-    height: 600px
+    height: 600px;
   }
 }
 </style>

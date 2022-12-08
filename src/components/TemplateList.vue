@@ -1,42 +1,42 @@
 <script setup>
-import { ElMessageBox } from "element-plus";
-import { reactive, ref, onMounted } from "vue";
-const props = defineProps({
-  title: String,
-});
+import { ElMessageBox } from 'element-plus';
+import { reactive, ref, onMounted } from 'vue';
+// const props = defineProps({
+//   title: String
+// });
 const tableData = [
   {
     id: 100,
-    date: "2016-05-03",
-    name: "Tom",
-    address: "上海",
-  },
+    date: '2016-05-03',
+    name: 'Tom',
+    address: '上海'
+  }
 ];
 const column = [
   {
-    key: "id",
-    label: "规则ID",
+    key: 'id',
+    label: '规则ID'
   },
   {
-    key: "name",
-    label: "规则名称",
+    key: 'name',
+    label: '规则名称'
   },
   {
-    key: "address",
-    label: "服务地址",
+    key: 'address',
+    label: '服务地址'
   },
   {
-    key: "location",
-    label: "服务所在地",
+    key: 'location',
+    label: '服务所在地'
   },
   {
-    key: "createdTime",
-    label: "创建时间",
+    key: 'createdTime',
+    label: '创建时间'
   },
   {
-    key: "operation",
-    label: "操作",
-  },
+    key: 'operation',
+    label: '操作'
+  }
 ];
 const handleEdit = (e) => {
   console.log(e);
@@ -44,21 +44,21 @@ const handleEdit = (e) => {
 const handleDelete = (e) => {
   console.log(e);
   ElMessageBox({
-    title: "",
-    confirmButtonText: "确认",
+    title: '',
+    confirmButtonText: '确认',
     showCancelButton: true,
-    cancelButtonText: "取消",
-    message: "节点删除后不可恢复。",
+    cancelButtonText: '取消',
+    message: '节点删除后不可恢复。'
   })
     .then(() => {
-      done();
+      // done();
     })
     .catch(() => {
       // catch error
     });
 };
 const formFilter = reactive({
-  name: "",
+  name: ''
 });
 const onSearch = (e) => {
   console.log(e);

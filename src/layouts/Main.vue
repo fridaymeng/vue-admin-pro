@@ -1,6 +1,6 @@
 <script setup>
-import AsiceMenu from "@/components/AsideMenu";
-import HeadMenu from "@/components/HeadMenu";
+import AsiceMenu from '@/components/AsideMenu';
+import HeadMenu from '@/components/HeadMenu';
 </script>
 <template>
   <div class="wrap">

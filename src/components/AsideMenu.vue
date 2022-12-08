@@ -1,16 +1,9 @@
 <script setup>
-import {
-  Switch,
-  Menu as IconMenu,
-  Connection,
-  Setting,
-  Edit,
-  Folder,
-} from "@element-plus/icons-vue";
-import { ref, onMounted } from "vue";
-import { useRouter } from "vue-router";
+import { Connection, Edit } from '@element-plus/icons-vue';
+import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 
-const active = ref("0");
+const active = ref('0');
 onMounted(() => {
   const $router = useRouter();
   active.value = $router.currentRoute.value.name;
@@ -35,9 +28,7 @@ onMounted(() => {
                 <el-icon><Connection /></el-icon>
                 <span>数据看板</span>
               </template>
-              <el-menu-item
-                index="analysis"
-                :route="{ name: 'analysis' }"
+              <el-menu-item index="analysis" :route="{ name: 'analysis' }"
                 >分析页</el-menu-item
               >
             </el-sub-menu>
@@ -46,9 +37,7 @@ onMounted(() => {
                 <el-icon><Connection /></el-icon>
                 <span>列表页</span>
               </template>
-              <el-menu-item
-                index="baseList"
-                :route="{ name: 'baseList' }"
+              <el-menu-item index="baseList" :route="{ name: 'baseList' }"
                 >标准列表</el-menu-item
               >
             </el-sub-menu>
@@ -57,9 +46,7 @@ onMounted(() => {
                 <el-icon><Edit /></el-icon>
                 <span>表单页</span>
               </template>
-              <el-menu-item
-                index="baseForm"
-                :route="{ name: 'baseForm' }"
+              <el-menu-item index="baseForm" :route="{ name: 'baseForm' }"
                 >标准表单</el-menu-item
               >
             </el-sub-menu>

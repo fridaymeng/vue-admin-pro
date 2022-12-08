@@ -1,9 +1,9 @@
 <script setup>
-import { ArrowDown } from "@element-plus/icons-vue";
-import router from "@/router";
+import { ArrowDown } from '@element-plus/icons-vue';
+import router from '@/router';
 function handleLogOut() {
-  localStorage.removeItem("authenticated");
-  router.push("/login");
+  localStorage.removeItem('authenticated');
+  router.push('/login');
 }
 </script>
 <template>

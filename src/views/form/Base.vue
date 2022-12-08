@@ -1,7 +1,7 @@
 <script setup>
 import { reactive, ref } from 'vue';
-const formSize = ref('default')
-const ruleFormRef = ref(0)
+const formSize = ref('default');
+const ruleFormRef = ref(0);
 const ruleForm = reactive({
   name: '',
   region: '',
@@ -11,84 +11,84 @@ const ruleForm = reactive({
   delivery: false,
   type: [],
   resource: '',
-  desc: '',
-})
+  desc: ''
+});
 
 const rules = reactive({
   name: [
     { required: true, message: 'Please input Activity name', trigger: 'blur' },
-    { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
+    { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' }
   ],
   region: [
     {
       required: true,
       message: 'Please select Activity zone',
-      trigger: 'change',
-    },
+      trigger: 'change'
+    }
   ],
   count: [
     {
       required: true,
       message: 'Please select Activity count',
-      trigger: 'change',
-    },
+      trigger: 'change'
+    }
   ],
   date1: [
     {
       type: 'date',
       required: true,
       message: 'Please pick a date',
-      trigger: 'change',
-    },
+      trigger: 'change'
+    }
   ],
   date2: [
     {
       type: 'date',
       required: true,
       message: 'Please pick a time',
-      trigger: 'change',
-    },
+      trigger: 'change'
+    }
   ],
   type: [
     {
       type: 'array',
       required: true,
       message: 'Please select at least one activity type',
-      trigger: 'change',
-    },
+      trigger: 'change'
+    }
   ],
   resource: [
     {
       required: true,
       message: 'Please select activity resource',
-      trigger: 'change',
-    },
+      trigger: 'change'
+    }
   ],
   desc: [
-    { required: true, message: 'Please input activity form', trigger: 'blur' },
-  ],
-})
+    { required: true, message: 'Please input activity form', trigger: 'blur' }
+  ]
+});
 
 const submitForm = async (formEl) => {
-  if (!formEl) return
+  if (!formEl) return;
   await formEl.validate((valid, fields) => {
     if (valid) {
-      console.log('submit!')
+      console.log('submit!');
     } else {
-      console.log('error submit!', fields)
+      console.log('error submit!', fields);
     }
-  })
-}
+  });
+};
 
 const resetForm = (formEl) => {
-  if (!formEl) return
-  formEl.resetFields()
-}
+  if (!formEl) return;
+  formEl.resetFields();
+};
 
 const options = Array.from({ length: 10000 }).map((_, idx) => ({
   value: `${idx + 1}`,
-  label: `${idx + 1}`,
-}))
+  label: `${idx + 1}`
+}));
 </script>
 <template>
   <div>

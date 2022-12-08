@@ -1,51 +1,51 @@
 <script setup>
-import { ref, reactive } from "vue";
-import { Login } from "@/api/user";
-import router from "@/router";
-import { getUUID } from "@/utils/uuid";
+import { ref, reactive } from 'vue';
+import { Login } from '@/api/user';
+import router from '@/router';
+import { getUUID } from '@/utils/uuid';
 const ruleFormRef = ref({});
 const ruleForm = reactive({
-  pass: "123456",
-  user: "admin",
+  pass: '123456',
+  user: 'admin'
 });
 const submitLoading = ref(false);
 const validatePass = (rule, value, callback) => {
-  if (value === "") {
-    callback(new Error("Please input the password"));
+  if (value === '') {
+    callback(new Error('Please input the password'));
   } else {
-    if (ruleForm.checkPass !== "") {
+    if (ruleForm.checkPass !== '') {
       if (!ruleFormRef.value) return;
-      ruleFormRef.value.validateField("checkPass", () => null);
+      ruleFormRef.value.validateField('checkPass', () => null);
     }
     callback();
   }
 };
 const validateUser = (rule, value, callback) => {
-  if (value === "") {
-    callback(new Error("Please input the userName"));
+  if (value === '') {
+    callback(new Error('Please input the userName'));
   } else {
-    if (ruleForm.user !== "") {
+    if (ruleForm.user !== '') {
       if (!ruleFormRef.value) return;
-      ruleFormRef.value.validateField("user", () => null);
+      ruleFormRef.value.validateField('user', () => null);
     }
     callback();
   }
 };
 const rules = reactive({
-  pass: [{ validator: validatePass, trigger: "blur" }],
-  userName: [{ validator: validateUser, trigger: "blur" }],
+  pass: [{ validator: validatePass, trigger: 'blur' }],
+  userName: [{ validator: validateUser, trigger: 'blur' }]
 });
 const submitForm = (formEl) => {
   submitLoading.value = true;
   if (!formEl) return;
   formEl.validate((valid) => {
     if (valid) {
-      localStorage.setItem("authenticated", getUUID());
-      console.log("submit!");
-      router.push("/");
+      localStorage.setItem('authenticated', getUUID());
+      console.log('submit!');
+      router.push('/');
       login(valid);
     } else {
-      console.log("error submit!");
+      console.log('error submit!');
       return false;
     }
   });
