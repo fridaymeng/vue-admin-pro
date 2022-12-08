@@ -69,7 +69,7 @@ async function login() {
       label-width="120px"
       class="ruleForm-wrap"
     >
-      <el-form-item label="用户名" prop="checkPass">
+      <el-form-item label="用户名" prop="checkUser">
         <el-input
           v-model="ruleForm.user"
           autocomplete="off"
@@ -78,7 +78,7 @@ async function login() {
           size="large"
         />
       </el-form-item>
-      <el-form-item label="密码" prop="pass">
+      <el-form-item label="密码" prop="checkPass">
         <el-input
           v-model="ruleForm.pass"
           type="password"
