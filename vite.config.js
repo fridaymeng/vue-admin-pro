@@ -21,6 +21,7 @@ export default defineConfig({
         changeOrigin: true,
         // rewrite: (path) => path.replace(/^\/api/, ''),
         configure: (proxy, options) => {
+          console.log(proxy, options);
           // proxy will be an instance of 'http-proxy'
         }
       }

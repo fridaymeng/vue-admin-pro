@@ -1,6 +1,5 @@
 {
   "endOfLine": "auto",
   "singleQuote": true,
-  "trailingComma": "none",
-  "prettier.endOfLine": "crlf"
+  "trailingComma": "none"
 }
