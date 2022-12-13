@@ -8,7 +8,7 @@ import HeadMenu from '@/components/HeadMenu';
       <el-header class="header-wrap">
         <el-row :gutter="20">
           <el-col :span="12">
-            <h3>GageWay</h3>
+            <h3>Vue Admin Pro</h3>
           </el-col>
           <el-col :span="12">
             <HeadMenu />
