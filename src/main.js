@@ -3,7 +3,7 @@ import { createPinia } from 'pinia';
 
 import App from '@/App.vue';
 import router from '@/router';
-import * as d3 from 'd3';
+import * as echarts from 'echarts';
 import ElementPlus from 'element-plus';
 import 'element-plus/dist/index.css';
 
@@ -16,6 +16,6 @@ app.use(createPinia());
 app.use(router);
 app.use(ElementPlus);
 
-app.provide('d3', d3);
+app.provide('echarts', echarts);
 
 app.mount('#app');
