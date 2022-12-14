@@ -53,11 +53,9 @@ function renderCharts() {
 }
 function getRandom() {
   let num = 0;
-  const interNum = 100000;
   setInterval(() => {
     num++;
-    const rst = Number.parseInt(Math.random() * interNum);
-    data.push(rst);
+    data.push(Math.random());
     xData.push(num);
     if (data.length > 50) {
       data.shift();
